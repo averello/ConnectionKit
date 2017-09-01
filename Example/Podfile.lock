@@ -1,0 +1,55 @@
+PODS:
+  - CocoaAsyncSocket (7.6.1)
+  - ConnectionKit (1.2.3):
+    - CocoaAsyncSocket
+    - ContentKit
+    - RepresentationKit
+  - ContentKit (1.6.5):
+    - Extensions
+    - RepresentationKit
+  - Extensions (1.17)
+  - RepresentationKit (1.1.4)
+
+DEPENDENCIES:
+  - CocoaAsyncSocket (from `https://github.com/averello/CocoaAsyncSocket.git`)
+  - ConnectionKit (from `../`)
+  - ContentKit (from `https://github.com/averello/ContentKit.git`)
+  - Extensions (from `https://github.com/averello/Extensions.git`)
+  - RepresentationKit (from `https://github.com/averello/RepresentationKit.git`)
+
+EXTERNAL SOURCES:
+  CocoaAsyncSocket:
+    :git: https://github.com/averello/CocoaAsyncSocket.git
+  ConnectionKit:
+    :path: "../"
+  ContentKit:
+    :git: https://github.com/averello/ContentKit.git
+  Extensions:
+    :git: https://github.com/averello/Extensions.git
+  RepresentationKit:
+    :git: https://github.com/averello/RepresentationKit.git
+
+CHECKOUT OPTIONS:
+  CocoaAsyncSocket:
+    :commit: adb57a2ad35c90a1f9f29188c5966e85e4b856e6
+    :git: https://github.com/averello/CocoaAsyncSocket.git
+  ContentKit:
+    :commit: baf2e0229d9c2d646703e0ab5bcff3d6188098b3
+    :git: https://github.com/averello/ContentKit.git
+  Extensions:
+    :commit: a2013d209d1596900df391641c8108bb29009022
+    :git: https://github.com/averello/Extensions.git
+  RepresentationKit:
+    :commit: 13a45a3a9e3e93def7662d6f7719e9fe4920f5d3
+    :git: https://github.com/averello/RepresentationKit.git
+
+SPEC CHECKSUMS:
+  CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
+  ConnectionKit: 3cd2cbc8e7a24f74fa4004a42cfb93c8a2c10462
+  ContentKit: 337772dce7541148e4253b18ef93e81c6231a066
+  Extensions: 7ba9c56c1529e8ea9056fd6038501af133632b8a
+  RepresentationKit: 1ae7749916ed014403db30f3d38204d7e000dbd1
+
+PODFILE CHECKSUM: ed9b1f2eed462ba79149448fdac4402c66244f5b
+
+COCOAPODS: 1.2.1

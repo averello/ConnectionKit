@@ -1,0 +1,6 @@
+framework module Pods_ConnectionKit_Tests {
+  umbrella header "Pods-ConnectionKit_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

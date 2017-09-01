@@ -1,0 +1,6 @@
+framework module ConnectionKit {
+  umbrella header "ConnectionKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
