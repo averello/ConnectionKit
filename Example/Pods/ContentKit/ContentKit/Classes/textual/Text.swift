@@ -24,7 +24,7 @@
 
 import Foundation
 import RepresentationKit
-import Extensions
+import Ents
 
 public protocol Text: Content, Representable, LosslessStringConvertible {
     var content: String { get }

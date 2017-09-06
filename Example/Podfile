@@ -5,7 +5,7 @@ target 'ConnectionKit_Tests' do
   
   pod 'RepresentationKit', :git => 'https://github.com/averello/RepresentationKit.git'
   pod 'ContentKit', :git => 'https://github.com/averello/ContentKit.git'
-  pod 'Extensions', :git => 'https://github.com/averello/Extensions.git'
+  pod 'Ents', :git => 'https://github.com/averello/Ents.git'
   pod 'CocoaAsyncSocket', :git => 'https://github.com/averello/CocoaAsyncSocket.git'
   
 end

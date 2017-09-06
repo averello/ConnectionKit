@@ -421,9 +421,9 @@ Updated and maintained by Deusty LLC and the Apple development community.
    limitations under the License.
 
 
-## Extensions
+## Ents
 
-Extensions
+Ents
 
 Copyright (c) 2016-2017 Georges Boumis <developer.george.boumis@gmail.com>
 

@@ -92,14 +92,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CocoaAsyncSocket/CocoaAsyncSocket.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ConnectionKit/ConnectionKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ContentKit/ContentKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Extensions/Extensions.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Ents/Ents.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RepresentationKit/RepresentationKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CocoaAsyncSocket/CocoaAsyncSocket.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ConnectionKit/ConnectionKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ContentKit/ContentKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Extensions/Extensions.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Ents/Ents.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RepresentationKit/RepresentationKit.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

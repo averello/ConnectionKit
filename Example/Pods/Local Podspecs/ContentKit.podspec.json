@@ -20,7 +20,7 @@
   },
   "source_files": "ContentKit/Classes/**/*",
   "dependencies": {
-    "Extensions": [
+    "Ents": [
 
     ],
     "RepresentationKit": [
