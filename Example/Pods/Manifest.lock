@@ -1,21 +1,20 @@
 PODS:
   - CocoaAsyncSocket (7.6.1)
-  - ConnectionKit (1.2.3):
+  - ConnectionKit (2.0):
     - CocoaAsyncSocket
     - ContentKit
     - RepresentationKit
-  - ContentKit (1.6.5):
-    - Ents
+  - ContentKit (2.0):
     - RepresentationKit
-  - Ents (1.17)
+  - Ents (2.0)
   - RepresentationKit (1.1.4)
 
 DEPENDENCIES:
   - CocoaAsyncSocket (from `https://github.com/averello/CocoaAsyncSocket.git`)
   - ConnectionKit (from `../`)
-  - ContentKit (from `https://github.com/averello/ContentKit.git`)
-  - Ents (from `https://github.com/averello/Ents.git`)
-  - RepresentationKit (from `https://github.com/averello/RepresentationKit.git`)
+  - ContentKit (from `https://github.com/averello/ContentKit.git`, branch `feature/swift4`)
+  - Ents (from `https://github.com/averello/Ents.git`, branch `feature/swift4`)
+  - RepresentationKit (from `https://github.com/averello/RepresentationKit.git`, branch `feature/swift4`)
 
 EXTERNAL SOURCES:
   CocoaAsyncSocket:
@@ -23,10 +22,13 @@ EXTERNAL SOURCES:
   ConnectionKit:
     :path: "../"
   ContentKit:
+    :branch: feature/swift4
     :git: https://github.com/averello/ContentKit.git
   Ents:
+    :branch: feature/swift4
     :git: https://github.com/averello/Ents.git
   RepresentationKit:
+    :branch: feature/swift4
     :git: https://github.com/averello/RepresentationKit.git
 
 CHECKOUT OPTIONS:
@@ -34,22 +36,22 @@ CHECKOUT OPTIONS:
     :commit: adb57a2ad35c90a1f9f29188c5966e85e4b856e6
     :git: https://github.com/averello/CocoaAsyncSocket.git
   ContentKit:
-    :commit: ef561a488f2cde6731a76a163184578ec01fb0af
+    :commit: 68f8d2d064036e63a8ef788444d23634c126a2c0
     :git: https://github.com/averello/ContentKit.git
   Ents:
-    :commit: 580e1880a334135f775b2cf1ef20f0e1a1540f1d
+    :commit: 6f47f341bad8e472b97f0f17194fd70156f49e30
     :git: https://github.com/averello/Ents.git
   RepresentationKit:
-    :commit: 13a45a3a9e3e93def7662d6f7719e9fe4920f5d3
+    :commit: 8fbcb72326485baf98d908595e159c9dbc55dc3d
     :git: https://github.com/averello/RepresentationKit.git
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
-  ConnectionKit: 3cd2cbc8e7a24f74fa4004a42cfb93c8a2c10462
-  ContentKit: b0ded7d9d57f77ca3c87261c97d606b4ea9f7bdf
-  Ents: f7469b80b3507e2bbc936c96b2cf61e79c0ce809
+  ConnectionKit: 2da507eb946caacd46b47768eb2dc1c823586eca
+  ContentKit: 1fd3e6e87cee63cc68e728d12bf9c0b764239249
+  Ents: 20bc1cb5159647ff4dbbc089fcf7ddce6e8ebacf
   RepresentationKit: 1ae7749916ed014403db30f3d38204d7e000dbd1
 
-PODFILE CHECKSUM: b223b8e2a9b6831807cd9b7e134044f226a061dd
+PODFILE CHECKSUM: ee82bb8d3cb52bcbb076ac09ced1042b43940a47
 
 COCOAPODS: 1.2.1
