@@ -56,6 +56,7 @@ public final class SocketConnection: NSObject, GCDAsyncSocketDelegate, Connectio
 
         self.socket = GCDAsyncSocket(delegate: self,
                                      delegateQueue: DispatchQueue.main)
+        self.socket.isIPv4PreferredOverIPv6 = false
     }
 
     deinit {
