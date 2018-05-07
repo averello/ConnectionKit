@@ -33,8 +33,8 @@ public enum ConnectionError: Error {
 }
 
 public protocol Connection {
-    weak var delegate: ConnectionDelegate? { get set }
-    weak var errorDelegate: ConnectionErrorDelegate? { get set }
+    /* weak */ var delegate: ConnectionDelegate? { get set }
+    /* weak */ var errorDelegate: ConnectionErrorDelegate? { get set }
 
     func connect() throws
     func disconnect()

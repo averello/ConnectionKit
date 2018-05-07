@@ -95,7 +95,7 @@ public final class SocketConnection: NSObject, GCDAsyncSocketDelegate, Connectio
     final public func send(_ representable: Representable) {
         var jsonBuilder: JSONRepresentationBuilder = JSONRepresentationBuilder()
         jsonBuilder = representable.represent(using: jsonBuilder)
-        self.socket.write(jsonBuilder.jsonData as Data!,
+        self.socket.write(jsonBuilder.jsonData!,
                           withTimeout: self.timeOut,
                           tag: Tag.outMessage.rawValue)
     }

@@ -3,9 +3,9 @@ target 'ConnectionKit_Tests' do
   platform :ios, '8.0'
   pod 'ConnectionKit', :path => '../'
   
-  pod 'RepresentationKit', :git => 'https://github.com/averello/RepresentationKit.git', :branch => 'feature/swift4'
-  pod 'ContentKit', :git => 'https://github.com/averello/ContentKit.git', :branch => 'feature/swift4'
-  pod 'Ents', :git => 'https://github.com/averello/Ents.git', :branch => 'feature/swift4'
+  pod 'RepresentationKit', :git => 'https://github.com/averello/RepresentationKit.git'
+  pod 'ContentKit', :git => 'https://github.com/averello/ContentKit.git'
+  pod 'Ents', :git => 'https://github.com/averello/Ents.git'
   pod 'CocoaAsyncSocket', :git => 'https://github.com/averello/CocoaAsyncSocket.git'
   
 end

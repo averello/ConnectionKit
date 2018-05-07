@@ -1,20 +1,20 @@
 PODS:
   - CocoaAsyncSocket (7.6.1)
-  - ConnectionKit (2.0.1):
+  - ConnectionKit (2.1):
     - CocoaAsyncSocket
     - ContentKit
     - RepresentationKit
   - ContentKit (2.0):
     - RepresentationKit
-  - Ents (2.0.7)
+  - Ents (3.0.2)
   - RepresentationKit (2.0)
 
 DEPENDENCIES:
   - CocoaAsyncSocket (from `https://github.com/averello/CocoaAsyncSocket.git`)
   - ConnectionKit (from `../`)
-  - ContentKit (from `https://github.com/averello/ContentKit.git`, branch `feature/swift4`)
-  - Ents (from `https://github.com/averello/Ents.git`, branch `feature/swift4`)
-  - RepresentationKit (from `https://github.com/averello/RepresentationKit.git`, branch `feature/swift4`)
+  - ContentKit (from `https://github.com/averello/ContentKit.git`)
+  - Ents (from `https://github.com/averello/Ents.git`)
+  - RepresentationKit (from `https://github.com/averello/RepresentationKit.git`)
 
 EXTERNAL SOURCES:
   CocoaAsyncSocket:
@@ -22,13 +22,10 @@ EXTERNAL SOURCES:
   ConnectionKit:
     :path: "../"
   ContentKit:
-    :branch: feature/swift4
     :git: https://github.com/averello/ContentKit.git
   Ents:
-    :branch: feature/swift4
     :git: https://github.com/averello/Ents.git
   RepresentationKit:
-    :branch: feature/swift4
     :git: https://github.com/averello/RepresentationKit.git
 
 CHECKOUT OPTIONS:
@@ -39,7 +36,7 @@ CHECKOUT OPTIONS:
     :commit: 68f8d2d064036e63a8ef788444d23634c126a2c0
     :git: https://github.com/averello/ContentKit.git
   Ents:
-    :commit: 65b2e26e899338ccfe4187de38e6fe5e1e9b61f9
+    :commit: 0fe24694f29439d730a4d4f9cae6b47c4a571d1c
     :git: https://github.com/averello/Ents.git
   RepresentationKit:
     :commit: fc44c427ad7ee9c41b52248fd237e63a7dc59406
@@ -47,11 +44,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
-  ConnectionKit: bc1add031fbf43c665f342512603e130aa6cd3de
+  ConnectionKit: d4cfdf427662755a90ba964b551b590b78fa37bf
   ContentKit: 1fd3e6e87cee63cc68e728d12bf9c0b764239249
-  Ents: 3f89ec7ba55b0da7dbb6bc1fc3a2f105e9c9f66d
+  Ents: ba6f1580477df17aca1ea671975ab17789a05e98
   RepresentationKit: 13e70a642c8f6ff8ea045b76cbe7814d443e735d
 
-PODFILE CHECKSUM: ee82bb8d3cb52bcbb076ac09ced1042b43940a47
+PODFILE CHECKSUM: b223b8e2a9b6831807cd9b7e134044f226a061dd
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.0
