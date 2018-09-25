@@ -86,8 +86,19 @@ typedef NS_ENUM(NSInteger, GCDAsyncSocketError) {
 **/
 - (instancetype)init;
 - (instancetype)initWithSocketQueue:(nullable dispatch_queue_t)sq;
-- (instancetype)initWithDelegate:(nullable id<GCDAsyncSocketDelegate>)aDelegate delegateQueue:(nullable dispatch_queue_t)dq;
-- (instancetype)initWithDelegate:(nullable id<GCDAsyncSocketDelegate>)aDelegate delegateQueue:(nullable dispatch_queue_t)dq socketQueue:(nullable dispatch_queue_t)sq;
+- (instancetype)initWithDelegate:(nullable id<GCDAsyncSocketDelegate>)aDelegate
+                   delegateQueue:(nullable dispatch_queue_t)dq;
+- (instancetype)initWithDelegate:(nullable id<GCDAsyncSocketDelegate>)aDelegate
+                   delegateQueue:(nullable dispatch_queue_t)dq socketQueue:(nullable dispatch_queue_t)sq;
+
+/**
+ * Create GCDAsyncSocket from already connect BSD socket file descriptor
+**/
++ (nullable instancetype)socketFromConnectedSocketFD:(int)socketFD socketQueue:(nullable dispatch_queue_t)sq error:(NSError**)error;
+
++ (nullable instancetype)socketFromConnectedSocketFD:(int)socketFD delegate:(nullable id<GCDAsyncSocketDelegate>)aDelegate delegateQueue:(nullable dispatch_queue_t)dq error:(NSError**)error;
+
++ (nullable instancetype)socketFromConnectedSocketFD:(int)socketFD delegate:(nullable id<GCDAsyncSocketDelegate>)aDelegate delegateQueue:(nullable dispatch_queue_t)dq socketQueue:(nullable dispatch_queue_t)sq error:(NSError **)error;
 
 #pragma mark Configuration
 
