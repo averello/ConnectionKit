@@ -36,7 +36,7 @@ public final class SocketConnection: NSObject, GCDAsyncSocketDelegate, Connectio
 
     // MARK: Private
     final fileprivate var socket: GCDAsyncSocket!
-
+    final private let out: DataRepresentation
 
     // MARK: Conformance to Connection
     weak final public var delegate: ConnectionDelegate?
@@ -45,12 +45,14 @@ public final class SocketConnection: NSObject, GCDAsyncSocketDelegate, Connectio
     public init(host: Host,
                 port: Port,
                 delegate: ConnectionDelegate?,
-                errorDelegate: ConnectionErrorDelegate?) {
+                errorDelegate: ConnectionErrorDelegate?,
+                outboundRepresentation: DataRepresentation) {
 
         self.host = host
         self.port = port
         self.delegate = delegate
         self.errorDelegate = errorDelegate
+        self.out = outboundRepresentation
 
         super.init()
 
@@ -93,9 +95,8 @@ public final class SocketConnection: NSObject, GCDAsyncSocketDelegate, Connectio
 
     // never throws
     final public func send(_ representable: Representable) {
-        var jsonBuilder: JSONRepresentationBuilder = JSONRepresentationBuilder()
-        jsonBuilder = representable.represent(using: jsonBuilder)
-        self.socket.write(jsonBuilder.jsonData!,
+        let representation = representable.represent(using: self.out) as! DataRepresentation
+        self.socket.write(representation.data,
                           withTimeout: self.timeOut,
                           tag: Tag.outMessage.rawValue)
     }
@@ -113,13 +114,7 @@ extension SocketConnection {
     final public func socket(_ sock: GCDAsyncSocket,
                              didRead data: Data,
                              withTag tag: Int) {
-        if let jsonString: Representable = String(data: data, encoding: String.Encoding.utf8) {
-            self.delegate?.didReceive(jsonString)
-        } else {
-            self.errorDelegate?.didFail(with: ConnectionError.receiveFailed)
-            return
-        }
-
+        self.delegate?.didReceive(data)
         self.socket.readData(to: GCDAsyncSocket.lfData(),
                              withTimeout: self.timeOut,
                              tag: Tag.inMessage.rawValue)

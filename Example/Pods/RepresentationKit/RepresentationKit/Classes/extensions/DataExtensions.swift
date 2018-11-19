@@ -1,8 +1,8 @@
 //
-//  ConnectionDelegate.swift
-//  ConnectionKit
+//  DataExtensions.swift
+//  RepresentationKit
 //
-//  Created by Georges Boumis on 21/06/2016.
+//  Created by Georges Boumis on 19/11/2018.
 //
 //  Licensed to the Apache Software Foundation (ASF) under one
 //  or more contributor license agreements.  See the NOTICE file
@@ -23,11 +23,10 @@
 //
 
 import Foundation
-import RepresentationKit
 
-public protocol ConnectionDelegate: class {
-    func didConnect(_ connection: Connection)
-    func didDisconnect(_ connection: Connection, reason : Error?)
-
-    func didReceive(_ representable: Representable)
+extension Data: Representable {
+    
+    public func represent(using representation: Representation) -> Representation {
+        return representation.with(key: "data", value: self)
+    }
 }

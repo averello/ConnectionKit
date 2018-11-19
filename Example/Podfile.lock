@@ -1,13 +1,13 @@
 PODS:
   - CocoaAsyncSocket (7.6.3)
-  - ConnectionKit (2.2):
+  - ConnectionKit (2.3):
     - CocoaAsyncSocket
     - ContentKit
     - RepresentationKit
   - ContentKit (2.3):
     - RepresentationKit
-  - Ents (3.1.1)
-  - RepresentationKit (2.2)
+  - Ents (3.1.3)
+  - RepresentationKit (2.3.1)
 
 DEPENDENCIES:
   - CocoaAsyncSocket (from `https://github.com/averello/CocoaAsyncSocket.git`)
@@ -36,18 +36,18 @@ CHECKOUT OPTIONS:
     :commit: def45349a03d039d51db5a71c3ca768bf6ec1d25
     :git: https://github.com/averello/ContentKit.git
   Ents:
-    :commit: 2d6d8a352bc35be340a56929da21e4ed9cfe4ce6
+    :commit: 6e2b884f47f376c8817e50f4c439d1276cc2aa86
     :git: https://github.com/averello/Ents.git
   RepresentationKit:
-    :commit: 87c8045f94bbb9aaba43de8273ddee966229190a
+    :commit: baaf595efcf402d212d0f121d661ec4559614b50
     :git: https://github.com/averello/RepresentationKit.git
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
-  ConnectionKit: 2557f126071267c541ea6ccf4aca915f388cf01f
+  ConnectionKit: d3d9bab16c0d79af705545b5837f47fe8c6c7256
   ContentKit: 46f66173851d13e8242dc84337a9fd7ec62ed54d
-  Ents: 8c03f9a801f0677cd6b2f2e00e9ad03e0a195d84
-  RepresentationKit: f1cbe81fe33fe738a2a3d8a1f752359cbb57172c
+  Ents: 132cdc3ada87d92df2ce3cf0ead5607969d70e21
+  RepresentationKit: 14798022f1519aefdfa56a2367e116e12133088d
 
 PODFILE CHECKSUM: b223b8e2a9b6831807cd9b7e134044f226a061dd
 

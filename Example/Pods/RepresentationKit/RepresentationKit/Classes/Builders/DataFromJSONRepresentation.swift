@@ -1,8 +1,8 @@
 //
-//  ConnectionDelegate.swift
-//  ConnectionKit
+//  DataFromJSONRepresentation.swift
+//  RepresentationKit
 //
-//  Created by Georges Boumis on 21/06/2016.
+//  Created by Georges Boumis on 19/11/2018.
 //
 //  Licensed to the Apache Software Foundation (ASF) under one
 //  or more contributor license agreements.  See the NOTICE file
@@ -23,11 +23,22 @@
 //
 
 import Foundation
-import RepresentationKit
 
-public protocol ConnectionDelegate: class {
-    func didConnect(_ connection: Connection)
-    func didDisconnect(_ connection: Connection, reason : Error?)
+public struct DataFromJSONRepresentation: DataRepresentation  {
+    public var data: Data {
+        return self.json.jsonData!
+    }
+    private let json: JSONRepresentationBuilder
 
-    func didReceive(_ representable: Representable)
+    public func with<Key, Value>(key: Key, value: Value) -> Representation where Key : Hashable, Key : LosslessStringConvertible {
+        return DataFromJSONRepresentation(builder: self.json.with(key: key, value: value))
+    }
+
+    public init() {
+        self.init(builder: JSONRepresentationBuilder())
+    }
+
+    private init(builder: JSONRepresentationBuilder) {
+        self.json = builder
+    }
 }

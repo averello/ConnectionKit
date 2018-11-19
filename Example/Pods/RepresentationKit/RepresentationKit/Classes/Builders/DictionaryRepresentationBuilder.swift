@@ -24,7 +24,6 @@
 
 import Foundation
 
-
 /// Building a Dictionary Representation of a conforming object
 final public class DictionaryRepresentationBuilder: DictionaryRepresentation {
 	final public let dictionary: [String : Any]
