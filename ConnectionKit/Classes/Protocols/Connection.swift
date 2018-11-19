@@ -27,7 +27,8 @@ import RepresentationKit
 
 public enum ConnectionError: Error {
     case connectionFailed
-    case receiveFailed
+    case receptionFailed
+    case sendFailed
     case disconnection
     case alreadyConnected
 }
