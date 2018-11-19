@@ -1,6 +1,6 @@
 PODS:
   - CocoaAsyncSocket (7.6.3)
-  - ConnectionKit (2.3):
+  - ConnectionKit (2.3.1):
     - CocoaAsyncSocket
     - ContentKit
     - RepresentationKit
@@ -44,7 +44,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
-  ConnectionKit: d3d9bab16c0d79af705545b5837f47fe8c6c7256
+  ConnectionKit: 1cc8cf6ee0b7b68524e6b439364838562ec5a0e8
   ContentKit: 46f66173851d13e8242dc84337a9fd7ec62ed54d
   Ents: 132cdc3ada87d92df2ce3cf0ead5607969d70e21
   RepresentationKit: 14798022f1519aefdfa56a2367e116e12133088d

@@ -1,8 +1,8 @@
 //
-//  Connection.swift
+//  StreamConnection.swift
 //  ConnectionKit
 //
-//  Created by Georges Boumis on 21/06/2016.
+//  Created by Georges Boumis on 19/11/2018.
 //
 //  Licensed to the Apache Software Foundation (ASF) under one
 //  or more contributor license agreements.  See the NOTICE file
@@ -23,21 +23,11 @@
 //
 
 import Foundation
-import RepresentationKit
 
-public enum ConnectionError: Error {
-    case connectionFailed
-    case receiveFailed
-    case disconnection
-    case alreadyConnected
+public protocol StreamConnection: Connection {
+    var input: InputStream { get }
+    var output: OutputStream { get }
+
+    func accessStreams(_ block: @escaping (_ input: InputStream, _ output: OutputStream) -> Void)
 }
 
-public protocol Connection {
-    /* weak */ var delegate: ConnectionDelegate? { get set }
-    /* weak */ var errorDelegate: ConnectionErrorDelegate? { get set }
-
-    func connect() throws
-    func disconnect()
-    func close()
-    func send(_ representable: Representable)
-}

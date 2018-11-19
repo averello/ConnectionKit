@@ -140,3 +140,25 @@ extension SocketConnection {
         }
     }
 }
+
+
+extension SocketConnection: StreamConnection {
+
+    public var input: InputStream {
+        assert(false) // do not use cf func accessStreams()
+        return self.socket.readStream()!.takeUnretainedValue()
+    }
+
+    public var output: OutputStream {
+        assert(false) // do not use cf func accessStreams()
+        return self.socket.writeStream()!.takeUnretainedValue()
+    }
+
+    public func accessStreams(_ block: @escaping (InputStream, OutputStream) -> Void) {
+        self.socket.perform { [unowned self] in
+            guard let input = self.socket.readStream()?.takeUnretainedValue(),
+                let output = self.socket.writeStream()?.takeUnretainedValue() else { return }
+            block(input, output)
+        }
+    }
+}
