@@ -24,6 +24,10 @@
 
 import Foundation
 
+/// A Connection Error delegate.
 public protocol ConnectionErrorDelegate: class {
-    func didFail(with error: ConnectionError)
+    /// Indicates a failure
+    /// - parameter connection: The connection that failed.
+    /// - parameter error: The error that occured.
+    func connection(_ connection: Connection, didFailWith error: ConnectionError)
 }

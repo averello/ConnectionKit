@@ -408,3 +408,125 @@ public extension Collection {
     }
 }
 
+public extension Collection where Self.Index: BinaryInteger & Comparable {
+
+
+    /// Returns an array containing the results of mapping the given closure
+    /// over this sequence. The maping happens concurrently in a concurrent
+    /// queue.
+    ///
+    /// - parameter transform: A mapping closure. `transform` accepts an element
+    /// of this sequence as its parameter and returns a transformed value of the
+    /// same or of a different type. As the closure will be executed concurrently
+    /// in it must therefore be re-entrant safe.
+    public func concurrentMap<B>(qos: DispatchQoS.QoSClass = DispatchQoS.QoSClass.default,
+                                 lock: ConcurrentLock = ConcurrentLock.spinLock,
+                                 _ transform: @escaping (Self.Element) -> B) -> [B] {
+        let count = self.count
+        let result = ConcurrentValue(lock,
+                                     value: Array<B?>(repeating: nil, count: count))
+        let _ = DispatchQueue.global(qos: qos)
+        DispatchQueue.concurrentPerform(iterations: count) { (idx: Int) in
+            let index = Self.Index(idx)
+            let element = self[index]
+            let transformed = transform(element)
+            result.atomically { (array: inout [B?]) in
+                array[idx] = transformed
+            }
+        }
+        return result.value.map { $0! }
+    }
+
+    /// Returns the concatenated results of mapping the given transformation
+    /// over this sequence. The maping happens concurrently in a concurrent
+    /// queue.
+    ///
+    /// - parameter transform: A closure that accepts an element of this
+    /// sequence as its argument and returns an optional value. As the closure
+    /// will be executed concurrently in it must therefore be re-entrant safe.
+    public func concurrentFlatMap<SegmentOfResult>(qos: DispatchQoS.QoSClass = DispatchQoS.QoSClass.default,
+                                                   lock: ConcurrentLock = ConcurrentLock.spinLock,
+                                                   _ transform: @escaping (Element) -> SegmentOfResult) -> [SegmentOfResult.Element] where SegmentOfResult: Sequence {
+        let count = self.count
+        let result = ConcurrentValue(lock,
+                                     value: Array<SegmentOfResult?>(repeating: nil, count: count))
+        let _ = DispatchQueue.global(qos: .userInitiated)
+        DispatchQueue.concurrentPerform(iterations: count) { (idx: Int) in
+            let index = Self.Index(idx)
+            let element = self[index]
+            let transformed = transform(element)
+            result.atomically { (array: inout [SegmentOfResult?]) in
+                array[idx] = transformed
+            }
+        }
+        return result.value.flatMap { $0! }
+
+    }
+
+    /// Returns an array containing the non-nil results of calling the given
+    /// transformation with each element of this sequence. The maping happens
+    /// concurrently in a concurrent queue.
+    ///
+    /// - parameter transform: A closure that accepts an element of this
+    /// sequence as its argument and returns an optional value. As the closure
+    /// will be executed concurrently in it must therefore be re-entrant safe.
+    public func concurrentCompactMap<ElementOfResult>(qos: DispatchQoS.QoSClass = DispatchQoS.QoSClass.default,
+                                                      lock: ConcurrentLock = ConcurrentLock.spinLock,
+                                                      _ transform: @escaping (Element) -> ElementOfResult?) -> [ElementOfResult] {
+        let count = self.count
+        let result = ConcurrentValue(lock,
+                                     value: Array<ElementOfResult?>(repeating: nil, count: count))
+        let _ = DispatchQueue.global(qos: .userInitiated)
+        DispatchQueue.concurrentPerform(iterations: count) { (idx: Int) in
+            let index = Self.Index(idx)
+            let element = self[index]
+            let transformed = transform(element)
+            result.atomically { (array: inout [ElementOfResult?]) in
+                array[idx] = transformed
+            }
+        }
+        return result.value.compactMap { $0 }
+    }
+}
+
+public extension Collection where Self.Index: BinaryInteger & Comparable {
+
+    /// Returns an array containing, in order, the elements of the sequence
+    /// that satisfy the given predicate.  The filtering happens
+    /// concurrently in a concurrent queue.
+    ///
+    /// In this example, `filter(_:)` is used to include only names shorter than
+    /// five characters.
+    ///
+    ///     let cast = ["Vivien", "Marlon", "Kim", "Karl"]
+    ///     let shortNames = cast.concurrentFilter { $0.count < 5 }
+    ///     print(shortNames)
+    ///     // Prints "["Kim", "Karl"]"
+    ///
+    /// - Parameter isIncluded: A closure that takes an element of the
+    ///   sequence as its argument and returns a Boolean value indicating
+    ///   whether the element should be included in the returned array. As the
+    ///   closure will be executed concurrently in it must therefore be
+    ///   re-entrant safe.
+    /// - Returns: An array of the elements that `isIncluded` allowed.
+    ///
+    /// - Complexity: O(*n*), where *n* is the length of the sequence.
+    func concurrentFilter(qos: DispatchQoS.QoSClass = DispatchQoS.QoSClass.default,
+                          lock: ConcurrentLock = ConcurrentLock.spinLock,
+                          _ isIncluded: (Self.Element) -> Bool) -> [Self.Element] {
+        let count = self.count
+        let result = ConcurrentValue(lock,
+                                     value: Array<Self.Element>())
+        let _ = DispatchQueue.global(qos: qos)
+        DispatchQueue.concurrentPerform(iterations: count) { (idx: Int) in
+            let index = Self.Index(idx)
+            let element = self[index]
+            if isIncluded(element) {
+                result.atomically { (array: inout [Self.Element]) in
+                    array.append(element)
+                }
+            }
+        }
+        return result.value
+    }
+}

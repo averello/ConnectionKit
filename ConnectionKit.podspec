@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ConnectionKit'
-  s.version          = '2.3.2'
+  s.version          = '2.4'
   s.summary          = 'Abstract possible connections'
 
 # This description is used to generate tags and improve search results.

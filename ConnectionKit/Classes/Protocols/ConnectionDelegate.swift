@@ -23,11 +23,25 @@
 //
 
 import Foundation
+
+#if canImport(RepresentationKit)
 import RepresentationKit
 
+/// A Connection delegate.
 public protocol ConnectionDelegate: class {
-    func didConnect(_ connection: Connection)
-    func didDisconnect(_ connection: Connection, reason : Error?)
+    /// Indicates that the given `Connection` was successfully established.
+    /// - parameter connection: The connection that did successfully connect.
+    func connectionDidConnect(_ connection: Connection)
 
-    func didReceive(_ representable: Representable)
+    /// Indicates that the given `Connection` broke for given reason.
+    /// - parameter connection: The connection that did disconnect.
+    /// - parameter error: The reason, if any, why the connection disconnected.
+    func connection(_ connection: Connection, didDisconnectWithReason reason: Error?)
+
+    /// Some `Representable` value was received through the given collection
+    /// - parameter representable: The `Representable` value received through
+    /// the connection.
+    /// - parameter connection: The connection.
+    func connection(_ connection: Connection, didReceive representable: Representable)
 }
+#endif

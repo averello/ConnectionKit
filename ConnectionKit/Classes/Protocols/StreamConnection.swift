@@ -24,10 +24,14 @@
 
 import Foundation
 
+/// A Stream Connection based on `Stream`s.
+///
+/// A `StreamConnection` gives access to each underlying input & output streams.
 public protocol StreamConnection: Connection {
-    var input: InputStream { get }
-    var output: OutputStream { get }
-
+    /// Gives access to the receiver's input/output streams.
+    ///
+    /// The streams **must** not escape the block's lifetime.
+    /// - parameter block: A closure giving access to the receivers Streams.
     func accessStreams(_ block: @escaping (_ input: InputStream, _ output: OutputStream) -> Void)
 }
 

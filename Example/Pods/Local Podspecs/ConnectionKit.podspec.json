@@ -1,6 +1,6 @@
 {
   "name": "ConnectionKit",
-  "version": "2.3.2",
+  "version": "2.4",
   "summary": "Abstract possible connections",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/averello/ConnectionKit",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/averello/ConnectionKit.git",
-    "tag": "2.3.2"
+    "tag": "2.4"
   },
   "platforms": {
     "ios": "8.0"

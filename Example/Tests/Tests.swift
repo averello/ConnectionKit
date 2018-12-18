@@ -5,16 +5,18 @@ import RepresentationKit
 
 class Tests: XCTestCase, ConnectionDelegate, ConnectionErrorDelegate {
 
-    func didConnect(_ connection: Connection) {
+    func connectionDidConnect(_ connection: Connection) {
         print("connected> ", connection)
         self.connectExpectation.fulfill()
     }
 
-    func didDisconnect(_ connection: Connection, reason: Error?) {
+
+    func connection(_ connection: Connection, didDisconnectWithReason reason: Error?) {
         print("dis-connected> ", connection, " reason: ", String(describing: reason))
     }
 
-    func didReceive(_ representable: Representable) {
+
+    func connection(_ connection: Connection, didReceive representable: Representable) {
         let data = representable as! Data
         let result = String(data: data, encoding: String.Encoding.utf8)
         print("received> ", representable, " result: ", result)
@@ -23,7 +25,7 @@ class Tests: XCTestCase, ConnectionDelegate, ConnectionErrorDelegate {
         self.receptionIndex += 1
     }
 
-    func didFail(with error: ConnectionError) {
+    func connection(_ connection: Connection, didFailWith error: ConnectionError) {
         print("failed> ", error)
     }
 

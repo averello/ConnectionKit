@@ -23,22 +23,50 @@
 //
 
 import Foundation
+
+#if canImport(RepresentationKit)
 import RepresentationKit
 
+/// Represents generic Connection Errors.
 public enum ConnectionError: Error {
+    /// The connection failed. Usually happens upon `connect()`.
     case connectionFailed
+    /// Reception failed.
     case receptionFailed
+    /// Send failed.
     case sendFailed
+    /// Indicates that the connection disconnected due to the user requesting so.
     case disconnection
+    /// Error indicating an request for connection occured on an already
+    /// established connection.
     case alreadyConnected
 }
 
+/// What a connection should be
 public protocol Connection {
+
+    /// The delegate of the connection. It should be a `weak` instance.
     /* weak */ var delegate: ConnectionDelegate? { get set }
+    /// The error delegate of the connection. It should be a `weak` instance.
     /* weak */ var errorDelegate: ConnectionErrorDelegate? { get set }
 
+    /// Initiates the connection.
+    ///
+    /// Should any error occur during connection an error should be throw. Some
+    /// generic (inevitable) errors are defined in `ConnectionError`.
     func connect() throws
+
+    /// Should immediately break the connection, without flushing any pending
+    /// data. The connection is "closed" after `didDisconnect()` is invoked on
+    /// the delegate with error type `ConnectionError.disconnection`.
     func disconnect()
+
+    /// Should break the connection after flushing any pending data. It should
+    /// be expected that no delegate invokations should occured after `close()`
+    /// returns.
     func close()
+
+    /// Sends a `Representable` value through the receiver.
     func send(_ representable: Representable)
 }
+#endif
