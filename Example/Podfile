@@ -1,9 +1,13 @@
 use_frameworks!
+pod 'ConnectionKit', :path => '../'
+  
+pod 'RepresentationKit', :git => 'https://github.com/averello/RepresentationKit.git'
+pod 'CocoaAsyncSocket', :git => 'https://github.com/averello/CocoaAsyncSocket.git'
+
 target 'ConnectionKit_Tests' do
-  platform :ios, '8.0'
-  pod 'ConnectionKit', :path => '../'
-  
-  pod 'RepresentationKit', :git => 'https://github.com/averello/RepresentationKit.git'
-  pod 'CocoaAsyncSocket', :git => 'https://github.com/averello/CocoaAsyncSocket.git'
-  
+	platform :ios, '8.0'
+end
+
+target 'ConnectionKitMac_Tests' do
+	platform :macos, '10.9'
 end

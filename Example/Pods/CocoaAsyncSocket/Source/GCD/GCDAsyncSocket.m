@@ -77,21 +77,20 @@ static const int logLevel = GCDAsyncSocketLogLevel;
 
 #else
 
-#define THIS_METHOD NSStringFromSelector(_cmd)
 // Logging Disabled
 
-#define LogError(frmt, ...)     NSLog(frmt, ##__VA_ARGS__)
-#define LogWarn(frmt, ...)      NSLog(frmt, ##__VA_ARGS__)
-#define LogInfo(frmt, ...)      NSLog(frmt, ##__VA_ARGS__)
-#define LogVerbose(frmt, ...)   NSLog(frmt, ##__VA_ARGS__)
+#define LogError(frmt, ...)     {}
+#define LogWarn(frmt, ...)      {}
+#define LogInfo(frmt, ...)      {}
+#define LogVerbose(frmt, ...)   {}
 
-#define LogCError(frmt, ...)    NSLog(frmt, ##__VA_ARGS__)
-#define LogCWarn(frmt, ...)     NSLog(frmt, ##__VA_ARGS__)
-#define LogCInfo(frmt, ...)     NSLog(frmt, ##__VA_ARGS__)
-#define LogCVerbose(frmt, ...)  NSLog(frmt, ##__VA_ARGS__)
+#define LogCError(frmt, ...)    {}
+#define LogCWarn(frmt, ...)     {}
+#define LogCInfo(frmt, ...)     {}
+#define LogCVerbose(frmt, ...)  {}
 
-#define LogTrace()              NSLog(@"%s: %@", __FILE__, NSStringFromSelector(_cmd))
-#define LogCTrace(frmt, ...)    NSLog(@"%s: %s", __FILE__, __FUNCTION__)
+#define LogTrace()              {}
+#define LogCTrace(frmt, ...)    {}
 
 #endif
 

@@ -1,0 +1,3 @@
+{"colors":[{"color":"red","category":"hue","type":"primary","code":{"rgba":[255,0,0,1],"hex":"#F00"}},{"color":"white","category":"value","code":{"rgba":[0,0,0,1],"hex":"#FFF"}}]}
+{"colors":[{"color":"green","category":"hue","type":"primary","code":{"rgba":[0,255,0,1],"hex":"#0F0"}},{"color":"black","category":"value","code":{"rgba":[255,255,255,1],"hex":"#000"}}]}
+{"colors":[{"color":"blue","category":"hue","type":"primary","code":{"rgba":[0,0,255,1],"hex":"#00F"}},{"color":"grey","category":"value","code":{"rgba":[127,127,127,1],"hex":"#777"}}]}

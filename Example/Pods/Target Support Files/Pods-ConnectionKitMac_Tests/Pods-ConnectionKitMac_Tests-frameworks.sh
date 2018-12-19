@@ -143,14 +143,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket-iOS/CocoaAsyncSocket.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/ConnectionKit-iOS/ConnectionKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RepresentationKit-iOS/RepresentationKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket-macOS/CocoaAsyncSocket.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ConnectionKit-macOS/ConnectionKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RepresentationKit-macOS/RepresentationKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket-iOS/CocoaAsyncSocket.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/ConnectionKit-iOS/ConnectionKit.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RepresentationKit-iOS/RepresentationKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket-macOS/CocoaAsyncSocket.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ConnectionKit-macOS/ConnectionKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RepresentationKit-macOS/RepresentationKit.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

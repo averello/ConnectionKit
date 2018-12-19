@@ -1,5 +1,5 @@
 framework module ConnectionKit {
-  umbrella header "ConnectionKit-umbrella.h"
+  umbrella header "ConnectionKit-macOS-umbrella.h"
 
   export *
   module * { export * }

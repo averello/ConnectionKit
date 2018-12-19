@@ -16,18 +16,30 @@
     "tag": "2.5"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "8.0",
+    "osx": "10.9"
   },
   "source_files": "ConnectionKit/Classes/**/*",
   "dependencies": {
     "RepresentationKit": [
 
     ],
-    "ContentKit": [
-
-    ],
     "CocoaAsyncSocket": [
 
+    ]
+  },
+  "ios": {
+    "frameworks": [
+      "Foundation",
+      "Security",
+      "CFNetwork"
+    ]
+  },
+  "osx": {
+    "frameworks": [
+      "Foundation",
+      "Security",
+      "CoreServices"
     ]
   }
 }

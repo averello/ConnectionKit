@@ -191,7 +191,7 @@ extension SocketConnection: GCDAsyncSocketDelegate {
     }
 }
 
-
+#if TARGET_OS_IPHONE
 extension SocketConnection: StreamConnection {
 
     public func accessStreams(_ block: @escaping (InputStream, OutputStream) -> Void) {
@@ -202,4 +202,6 @@ extension SocketConnection: StreamConnection {
         }
     }
 }
+#endif
+
 #endif

@@ -1,8 +1,8 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CocoaAsyncSocket" "${PODS_CONFIGURATION_BUILD_DIR}/ConnectionKit" "${PODS_CONFIGURATION_BUILD_DIR}/RepresentationKit"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CocoaAsyncSocket-iOS" "${PODS_CONFIGURATION_BUILD_DIR}/ConnectionKit-iOS" "${PODS_CONFIGURATION_BUILD_DIR}/RepresentationKit-iOS"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/ConnectionKit/ConnectionKit.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/RepresentationKit/RepresentationKit.framework/Headers"
+OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/CocoaAsyncSocket-iOS/CocoaAsyncSocket.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/ConnectionKit-iOS/ConnectionKit.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/RepresentationKit-iOS/RepresentationKit.framework/Headers"
 OTHER_LDFLAGS = $(inherited) -framework "CocoaAsyncSocket" -framework "ConnectionKit" -framework "RepresentationKit"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_BUILD_DIR = ${BUILD_DIR}
