@@ -148,7 +148,8 @@ extension SocketConnection: GCDAsyncSocketDelegate {
 
     // MARK: -  GCDAsyncSocketDelegate
 
-    final internal func socket(_ sock: GCDAsyncSocket,
+    @objc
+    final public func socket(_ sock: GCDAsyncSocket,
                              didRead data: Data,
                              withTag tag: Int) {
         if let received = data as? Representable {
@@ -164,7 +165,8 @@ extension SocketConnection: GCDAsyncSocketDelegate {
                              tag: Tag.inMessage.rawValue)
     }
 
-    final internal func socket(_ sock: GCDAsyncSocket,
+    @objc
+    final public func socket(_ sock: GCDAsyncSocket,
                              didConnectToHost host: String,
                              port: UInt16) {
         self.delegate?.connectionDidConnect(self)
@@ -175,7 +177,8 @@ extension SocketConnection: GCDAsyncSocketDelegate {
                              tag: Tag.inMessage.rawValue)
     }
 
-    final internal func socketDidDisconnect(_ sock: GCDAsyncSocket,
+    @objc
+    final public func socketDidDisconnect(_ sock: GCDAsyncSocket,
                                           withError err: Error?) {
         if let error = err {
             self.delegate?.connection(self,

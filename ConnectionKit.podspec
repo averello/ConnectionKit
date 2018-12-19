@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ConnectionKit'
-  s.version          = '2.4'
+  s.version          = '2.4.1'
   s.summary          = 'Abstract possible connections'
 
 # This description is used to generate tags and improve search results.
@@ -40,6 +40,5 @@ TODO: Add long description of the pod here.
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'RepresentationKit'
-  s.dependency 'ContentKit'
   s.dependency 'CocoaAsyncSocket'
 end

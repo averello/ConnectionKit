@@ -1,6 +1,0 @@
-framework module ContentKit {
-  umbrella header "ContentKit-umbrella.h"
-
-  export *
-  module * { export * }
-}
