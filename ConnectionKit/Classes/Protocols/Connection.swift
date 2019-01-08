@@ -30,16 +30,21 @@ import RepresentationKit
 /// Represents generic Connection Errors.
 public enum ConnectionError: Error {
     /// The connection failed. Usually happens upon `connect()`.
-    case connectionFailed
+    /// - parameter error: Any underlying error that explains more the situation.
+    case connectionFailed(_ error: Error?)
     /// Reception failed.
-    case receptionFailed
+    /// - parameter error: Any underlying error that explains more the situation.
+    case receptionFailed(_ error: Error?)
     /// Send failed.
-    case sendFailed
+    /// - parameter error: Any underlying error that explains more the situation.
+    case sendFailed(_ error: Error?)
     /// Indicates that the connection disconnected due to the user requesting so.
-    case disconnection
+    /// - parameter error: Any underlying error that explains more the situation.
+    case disconnection(_ error: Error?)
     /// Error indicating an request for connection occured on an already
     /// established connection.
-    case alreadyConnected
+    /// - parameter error: Any underlying error that explains more the situation.
+    case alreadyConnected(_ error: Error?)
 }
 
 /// What a connection should be

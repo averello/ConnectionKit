@@ -110,10 +110,10 @@ public final class SocketConnection: NSObject, Connection {
         catch {
             let nserror: NSError = error as NSError
             if nserror.code == GCDAsyncSocketError.alreadyConnected.rawValue {
-                self.errorDelegate?.connection(self, didFailWith: ConnectionError.alreadyConnected)
+                self.errorDelegate?.connection(self, didFailWith: ConnectionError.alreadyConnected(error))
             }
             else {
-                self.errorDelegate?.connection(self, didFailWith: ConnectionError.connectionFailed)
+                self.errorDelegate?.connection(self, didFailWith: ConnectionError.connectionFailed(error))
             }
         }
     }
@@ -157,7 +157,7 @@ extension SocketConnection: GCDAsyncSocketDelegate {
         }
         else {
             self.errorDelegate?.connection(self,
-                                           didFailWith: ConnectionError.receptionFailed)
+                                           didFailWith: ConnectionError.receptionFailed(nil))
         }
 
         self.socket.readData(to: GCDAsyncSocket.lfData(),
@@ -179,15 +179,9 @@ extension SocketConnection: GCDAsyncSocketDelegate {
 
     @objc
     final public func socketDidDisconnect(_ sock: GCDAsyncSocket,
-                                          withError err: Error?) {
-        if let error = err {
-            self.delegate?.connection(self,
-                                      didDisconnectWithReason: error)
-        }
-        else {
-            self.delegate?.connection(self,
-                                      didDisconnectWithReason: ConnectionError.disconnection)
-        }
+                                          withError error: Error?) {
+        self.delegate?.connection(self,
+                                  didDisconnectWithReason: ConnectionError.disconnection(error))
     }
 }
 

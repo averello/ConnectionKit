@@ -1,9 +1,9 @@
 PODS:
   - CocoaAsyncSocket (7.6.3)
-  - ConnectionKit (2.4.1):
+  - ConnectionKit (2.4.2):
     - CocoaAsyncSocket
     - RepresentationKit
-  - RepresentationKit (2.3.1)
+  - RepresentationKit (2.4)
 
 DEPENDENCIES:
   - CocoaAsyncSocket (from `https://github.com/averello/CocoaAsyncSocket.git`)
@@ -23,13 +23,13 @@ CHECKOUT OPTIONS:
     :commit: 5a0f3244814de52bf3337f3425d52c569d082f1b
     :git: https://github.com/averello/CocoaAsyncSocket.git
   RepresentationKit:
-    :commit: baaf595efcf402d212d0f121d661ec4559614b50
+    :commit: 8d9f927eff31beaea2d3479c5da961e572994438
     :git: https://github.com/averello/RepresentationKit.git
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
-  ConnectionKit: 6e634b6ed318baca7fa197308c5d188c75e9bbcb
-  RepresentationKit: 14798022f1519aefdfa56a2367e116e12133088d
+  ConnectionKit: d71f9e4cc0a420eb86aa8c3e8269d1990362999b
+  RepresentationKit: dfffb127499021627b35ba8766c4ce22d6b21532
 
 PODFILE CHECKSUM: 07d6c8f50eb80bbbbebd56772d08c62b9a4cd972
 
